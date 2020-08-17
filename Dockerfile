@@ -18,8 +18,6 @@ RUN apt-get -qq update \
 RUN localedef --inputfile ru_RU --force --charmap UTF-8 --alias-file /usr/share/locale/locale.alias ru_RU.UTF-8
 ENV LANG ru_RU.utf8
 
-ADD *.deb /tmp/
-
 ENV PLATFORM_VERSION 83
 ENV SERVER_VERSION 8.3.17-1549
 RUN dpkg --install https://911.agrosem.ua/pics/sign_img/1c-enterprise$PLATFORM_VERSION-common_${SERVER_VERSION}_amd64.deb 2> /dev/null \
