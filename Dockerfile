@@ -20,8 +20,10 @@ ENV LANG ru_RU.utf8
 
 ENV PLATFORM_VERSION 83
 ENV SERVER_VERSION 8.3.17-1549
-RUN dpkg --install https://911.agrosem.ua/pics/sign_img/1c-enterprise83-common_8.3.17-1549_amd64.deb 2> /dev/null
-RUN dpkg --install https://911.agrosem.ua/pics/sign_img/1c-enterprise83-server_8.3.17-1549_amd64.deb 2> /dev/null
+RUN wget --quiet --output-document /tmp/1c-enterprise83-common_8.3.17-1549_amd64.deb https://911.agrosem.ua/pics/sign_img/1c-enterprise83-common_8.3.17-1549_amd64.deb \ 
+&& dpkg --install /tmp/1c-enterprise83-common_8.3.17-1549_amd64.deb 2> /dev/null
+RUN wget --quiet --output-document /tmp/1c-enterprise83-server_8.3.17-1549_amd64.deb https://911.agrosem.ua/pics/sign_img/1c-enterprise83-server_8.3.17-1549_amd64.deb \ 
+&& dpkg --install /tmp/1c-enterprise83-server_8.3.17-1549_amd64.deb 2> /dev/null
 RUN mkdir --parents /var/log/1C /home/usr1cv8/.1cv8/1C/1cv8/conf
 RUN chown --recursive usr1cv8:grp1cv8 /var/log/1C /home/usr1cv8
 
